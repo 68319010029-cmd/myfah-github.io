@@ -1,0 +1,216 @@
+/* กฎพื้นฐานและการตั้งค่าฟอนต์ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- 1. Header Styling --- */
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: rgba(255,255,255,0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* --- Main Content Layout --- */
+.converter-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.converter-card {
+    background: white;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    padding: 30px;
+}
+
+.description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+}
+
+/* Grid System สำหรับตัวแปลงหน่วย */
+.converter-grid {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+/* การจัดฟอร์ม Input */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.input-group input, .input-group select {
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s;
+    background-color: #fff;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: #2a5298;
+    box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.1);
+}
+
+.input-group input[readonly] {
+    background-color: #edf2f7;
+    cursor: not-allowed;
+    font-weight: bold;
+    color: #2d3748;
+}
+
+/* ปุ่มสลับหน่วย (Swap Zone) */
+.swap-zone {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.swap-zone button {
+    background-color: #2a5298;
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(42, 82, 152, 0.2);
+    transition: all 0.2s;
+}
+
+.swap-zone button:hover {
+    background-color: #1e3c72;
+    transform: scale(1.05);
+}
+
+/* Info Box */
+.formula-box {
+    margin-top: 30px;
+    background-color: #ebf8ff;
+    border-left: 4px solid #3182ce;
+    padding: 12px;
+    border-radius: 0 8px 8px 0;
+    color: #2b6cb0;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- 3. Footer Styling --- */
+footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer-sub {
+    font-size: 0.8rem;
+    color: #718096;
+}
+
+/* --- 2. Responsive Web Design (Media Queries) --- */
+
+/* สำหรับ Tablet (จอขนาดเล็กกว่า 768px) */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    .converter-card {
+        padding: 20px;
+    }
+}
+
+/* สำหรับ Mobile (จอขนาดเล็กกว่า 576px) */
+@media (max-width: 576px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* เปลี่ยน Grid ให้เรียงลงมาเป็นแนวตั้ง */
+    .converter-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .swap-zone {
+        margin-top: 0;
+        transform: rotate(90deg); /* หมุนลูกศรให้ชี้ขึ้นลงบนมือถือ */
+    }
+    
+    .converter-wrapper {
+        padding: 20px 10px;
+    }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Length Unit Converter - โปรแกรมแปลงหน่วยความยาว</title>
+    <!-- นำเข้า Font Awesome สำหรับ Icon สวยๆ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- เชื่อมโยงไฟล์ CSS ภายนอก -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Header Sections -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fa-solid fa-ruler-combined"></i>
+                <span class="logo-text">SmartConvert</span>
+            </div>
+            <h1>โปรแกรมแปลงหน่วยวัดความยาว</h1>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="converter-wrapper">
+        <div class="converter-card">
+            <p class="description">เครื่องมือสำหรับช่างและวิศวกร แปลงหน่วยแม่นยำระหว่างระบบเมตริกและระบบอังกฤษ</p>
+            
+            <div class="converter-grid">
+                <!-- ฝั่งหน่วยต้นทาง (From) -->
+                <div class="input-group">
+                    <label for="fromValue">ค่าที่ต้องการแปลง</label>
+                    <input type="number" id="fromValue" value="1" placeholder="ใส่ตัวเลขที่นี่...">
+                    
+                    <label for="fromUnit">จากหน่วย</label>
+                    <select id="fromUnit">
+                        <optgroup label="ระบบเมตริก (Metric)">
+                            <option value="mm">มิลลิเมตร (mm)</option>
+                            <option value="cm" selected>เซนติเมตร (cm)</option>
+                            <option value="m">เมตร (m)</option>
+                            <option value="km">กิโลเมตร (km)</option>
+                        </optgroup>
+                        <optgroup label="ระบบอังกฤษ (Imperial)">
+                            <option value="in">นิ้ว (in)</option>
+                            <option value="ft">ฟุต (ft)</option>
+                            <option value="yd">หลา (yd)</option>
+                            <option value="mi">ไมล์ (mi)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- ปุ่มสลับหน่วย (Swap Button) -->
+                <div class="swap-zone">
+                    <button id="swapBtn" title="สลับหน่วย"><i class="fa-solid fa-right-left"></i></button>
+                </div>
+
+                <!-- ฝั่งผลลัพธ์ (To) -->
+                <div class="input-group">
+                    <label for="toValue">ผลลัพธ์</label>
+                    <input type="text" id="toValue" readonly>
+                    
+                    <label for="toUnit">เป็นหน่วย</label>
+                    <select id="toUnit">
+                        <optgroup label="ระบบเมตริก (Metric)">
+                            <option value="mm">มิลลิเมตร (mm)</option>
+                            <option value="cm">เซนติเมตร (cm)</option>
+                            <option value="m">เมตร (m)</option>
+                            <option value="km">กิโลเมตร (km)</option>
+                        </optgroup>
+                        <optgroup label="ระบบอังกฤษ (Imperial)">
+                            <option value="in" selected>นิ้ว (in)</option>
+                            <option value="ft">ฟุต (ft)</option>
+                            <option value="yd">หลา (yd)</option>
+                            <option value="mi">ไมล์ (mi)</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <!-- การแสดงสูตรคำนวณคร่าวๆ -->
+            <div class="formula-box">
+                <i class="fa-solid fa-circle-info"></i> <span id="formulaText">1 cm = 0.3937 in</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- 3. Footer Section -->
+    <footer>
+        <p>&copy; 2026 Home Design & Engineering Co., Ltd. All Rights Reserved.</p>
+        <p class="footer-sub">ออกแบบมาเพื่อความสะดวกในการทำงานบน Mobile, Tablet และ Desktop</p>
+    </footer>
+
+    <!-- เชื่อมโยงไฟล์ JavaScript ภายนอก -->
+    <script src="script.js"></script>
+</body>
+</html>
